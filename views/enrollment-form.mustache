@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form</title>
+
+</head>
+<body>
+
+<div class="container my-5">
+    <h1 class="my-4 text-center">Enrollment Form</h1>
+
+    <form action="/enroll" method="POST">
+        <table class="table form-table table-bordered">
+            <tbody>
+                <tr>
+                    <td><label for="course_code">Course</label></td>
+                    <td>
+                        <select name="course_code" class="form-select" id="course_code" required>
+                            <option value="" disabled selected>Select a course</option>
+                            {{#courses}}
+                            <option value="{{course_code}}">{{course_name}}</option>
+                            {{/courses}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="student_code">Student</label></td>
+                    <td>
+                        <select name="student_code" class="form-select" id="student_code" required>
+                            <option value="" disabled selected>Select a student</option>
+                            {{#students}}
+                            <option value="{{student_code}}">{{getFullName}}</option> <!-- Make sure this method exists -->
+                            {{/students}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="enrolment_date">Enrollment Date</label></td>
+                    <td>
+                        <input type="date" name="enrolment_date" id="enrolment_date" class="form-control" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <input type="submit" value="Enroll Student" class="btn btn-primary btn-lg btn-custom">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <hr>
+    <div class="text-center">
+        <a href="/courses" class="btn btn-primary">List of Courses</a>
+        <a href="/students" class="btn btn-primary">List of Students</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

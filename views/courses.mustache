@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    
+</head>
+<body>
+
+<div class="container my-5">
+    <h1 class="my-4 text-center">List of Courses</h1>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Number of Enrollees</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#items}}
+                <tr>
+                    <td>{{course_code}}</td>
+                    <td>{{course_name}}</td>
+                    <td>{{enrollees_count}}</td>
+                    <td>
+                        <a href="/courses/{{course_code}}" class="btn btn-info">View Course</a>
+                        <a href="/export-course/{{course_code}}" class="btn btn-danger">Export to PDF</a>
+                    </td>
+                </tr>
+                {{/items}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="button-group text-center">
+        <a href="/enrollment-form" class="btn btn-success">Enroll Student</a>
+        <a href="/students" class="btn btn-secondary">Student List</a>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+           
+        </ul>
+    </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
